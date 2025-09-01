@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Orders from "../pages/Orders";
 import ProductDetails from "../pages/ProductDetails";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export default function Router() {
     return (
@@ -21,7 +22,11 @@ export default function Router() {
                         path="cart"
                     />
                     <Route
-                        element={<Checkout />}
+                        element={
+                            <ProtectedRoute>
+                                <Checkout />
+                            </ProtectedRoute>
+                        }
                         path="checkout"
                     />
                     <Route
@@ -29,7 +34,11 @@ export default function Router() {
                         path="login"
                     />
                     <Route
-                        element={<Orders />}
+                        element={
+                            <ProtectedRoute>
+                                <Orders />
+                            </ProtectedRoute>
+                        }
                         path="orders"
                     />
                     <Route
